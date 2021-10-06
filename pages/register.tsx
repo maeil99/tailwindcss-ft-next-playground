@@ -3,6 +3,7 @@ import { useFormik } from "formik";
 import { useState } from "react";
 import Input from "../components/useFormik/Input";
 import Button, { Type } from "../components/Button";
+import Select from "../components/useFormik/Select";
 
 const UseFormikRegisterationForm = () => {
   const initialValues: IRegisterProps = {
@@ -10,6 +11,7 @@ const UseFormikRegisterationForm = () => {
     email: "",
     password: "",
     confirmPassword: "",
+    gender: "",
   };
 
   const [data, setData] = useState<IRegisterProps>(
@@ -41,8 +43,15 @@ const UseFormikRegisterationForm = () => {
       confirmPassword: Yup.string()
         .oneOf([Yup.ref("password"), ""], "Password must match")
         .required("Required"),
+      gender: Yup.string().required("Required"),
     }),
   });
+
+  const genderOptions = [
+    { key: "Select an option", value: "" },
+    { key: "Male", value: "male" },
+    { key: "Female", value: "female" },
+  ];
 
   // console.log("Visited Field : ", formik.touched);
   //console.log("Form values: ", formik.values);
@@ -116,6 +125,21 @@ const UseFormikRegisterationForm = () => {
               ? formik.errors.confirmPassword
               : null}
           </div>
+          <div className="space-x-10 py-4">
+            <Select
+              label="Select a gender"
+              name="gender"
+              value={formik.values.gender}
+              options={genderOptions}
+              onBlur={formik.handleBlur}
+              onChange={formik.handleChange}
+            />
+          </div>
+          <div className="text-red-600 ml-40">
+            {formik.touched.gender && formik.errors.gender
+              ? formik.errors.gender
+              : null}
+          </div>
           <div className="space-x-4 justify-center px-40 pt-8">
             <Button type={Type.SUBMIT}>Submit</Button>
             <Button type={Type.RESET}>Reset</Button>
@@ -143,6 +167,7 @@ interface IRegisterProps {
   password: string;
   confirmPassword: string;
   className?: string;
+  gender: string;
 }
 
 const DisplayData = (props: IRegisterProps) => {
@@ -151,6 +176,7 @@ const DisplayData = (props: IRegisterProps) => {
       <p>Name : {props.name}</p>
       <p>Email : {props.email}</p>
       <p>Password : {props.password}</p>
+      <p>Gender : {props.gender}</p>
     </div>
   );
 };

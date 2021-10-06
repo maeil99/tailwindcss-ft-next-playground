@@ -4,6 +4,7 @@ import { useState } from "react";
 import InputField, { InputType } from "../components/Formik/InputField";
 import Button, { Type } from "../components/Button";
 import SelectField from "../components/Formik/SelectField";
+import { PropsValue, MultiValue } from "react-select";
 
 const Register = () => {
   const initialValues: IRegisterProps = {

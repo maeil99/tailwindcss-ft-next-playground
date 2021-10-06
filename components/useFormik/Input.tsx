@@ -5,8 +5,8 @@ interface InputProps {
   label: string;
   type?: string;
   value?: string | number | readonly string[] | undefined;
-  onChange?: ChangeEventHandler<HTMLInputElement> | undefined;
-  onBlur?: FocusEventHandler<HTMLInputElement> | undefined;
+  onChange: ChangeEventHandler<HTMLInputElement> | undefined;
+  onBlur: FocusEventHandler<HTMLInputElement> | undefined;
   className?: string;
 }
 

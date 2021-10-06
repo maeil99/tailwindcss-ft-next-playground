@@ -9,6 +9,9 @@ const Navbar = () =>  {
         <Link href='/register'>
         <a className='button bg-white h-10 hover:text-primary'>Register Now</a>
         </Link>
+        <Link href='/components'>
+        <a className='button bg-white h-10 hover:text-primary'>Testing Components</a>
+        </Link>
         </nav>
     )
 }

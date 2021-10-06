@@ -17,6 +17,7 @@ const Alert = ({ message, type }: AlertProps) => {
       >
         <div className="flex flex-row">
           {/* icon */}
+          {/* Icon is taken from heroicons.com */}
           {type === AlertColor.SUCCESS && (
             <>
               <span className="mr-2 pt-1">

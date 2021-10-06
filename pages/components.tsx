@@ -1,4 +1,4 @@
-import Alert from "../components/Alert";
+import Alert, { AlertColor } from "../components/Alert";
 import Button from "../components/Button";
 import Card from "../components/Card";
 
@@ -16,6 +16,15 @@ const Components = () => {
       <br />
       <Alert
       message='You have successfully made an alert'
+      type={AlertColor.SUCCESS}
+      />
+      <Alert
+      message='You have successfully made an alert'
+      type={AlertColor.WARNING}
+      />
+      <Alert
+      message='You have successfully made an alert'
+      type={AlertColor.ERROR}
       />
      
     </>
